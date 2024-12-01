@@ -1,0 +1,374 @@
+
+<!-- saved from url=(0018)https://espike.ir/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESPike WebApp</title>
+  <style>
+    .button {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(130deg, #646265, #101010);
+      box-shadow:
+        -2px -2px 1px 3px #1b1b1b,
+        2px 2px 1px 2px #686868,
+        -12px -12px 15px #605e61,
+        12px 12px 15px #1b1b1b;
+      border-radius: 50%;
+      transition: .2s ease;
+    }
+
+    .button-center {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(130deg, #646265, #101010);
+      box-shadow:
+        0px 0px 5px 5px #323232,
+        5px 4px 5px 1px #9b999c,
+        -5px -5px 10px 5px #1b1b1b;
+      border: 3px solid #2d2d2d;
+      border-radius: 50%;
+      font-size: 35px;
+      color: #9b999c;
+      transition: .7s ease;
+    }
+
+    .button:active {
+      box-shadow:
+        -0px -0px 1px 3px #1b1b1b,
+        0px 0px 1px 2px #686868,
+        -3px -3px 15px #605e61,
+        3px 3px 15px #1b1b1b;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input[type=checkbox] {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    input[type=checkbox]:active,
+    input[type=checkbox]:focus {
+      background: transparent;
+      box-shadow: none;
+      outline: none;
+      outline-width: 0;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    }
+
+    input[type=checkbox]:checked~.button-center {
+      color: #49fb35;
+      box-shadow:
+        0px 0px 10px 2px #49fb35,
+        0px 0px 5px 5px #323232,
+        5px 4px 5px 1px #9b999c,
+        -5px -5px 10px 5px #1b1b1b;
+    }
+
+    /* @import url(https://fonts.googleapis.com/css?family=Montserrat); */
+
+    body {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(120deg, #413f42, #2d2d2d);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Montserrat;
+    }
+
+
+    .block {
+      margin: 10px auto;
+      display: flex;
+      flex-direction: column;
+      /* max-width: 900px; */
+      padding: 20px 10px;
+    }
+
+    .input-res {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font: 15px/1 'Open Sans', sans-serif;
+      color: #333;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 100%;
+      max-width: 500px;
+      background-color: #ddd;
+      border: none;
+      padding: 10px 11px 11px 11px;
+      border-radius: 3px;
+      box-shadow: none;
+      outline: none;
+      margin: 0;
+      box-sizing: border-box;
+      margin: 10px auto;
+
+    }
+
+    .bubbly-button {
+      /* width: 200px; */
+      height: 40px;
+      background: #e0e0e0;
+
+      /* border: 3px solid #2d2d2d; */
+      /* border-radius: 50%; */
+      font-size: 20px;
+      color: #333;
+      /* transition: .7s ease; */
+      font-family: Montserrat;
+
+    }
+
+
+
+    .container {
+      /* height: 90vh; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button1:focus {
+      outline: none;
+    }
+
+    .button1 {
+      text-transform: uppercase;
+      float: left;
+      min-width: 150px;
+      max-width: 250px;
+      display: block;
+      padding: 1em 2em;
+      background: none;
+      /* vertical-align: middle; */
+      position: relative;
+      z-index: 1;
+      letter-spacing: 2px;
+      background: #e0e0e0;
+      color: #333;
+      font-weight: bold;
+      font-size: 16px;
+      border: 4px solid;
+      cursor: pointer;
+    }
+
+    .button1::after {
+      content: "";
+      background-color: transparent;
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      opacity: 0;
+      color: #3f51b5;
+      z-index: -1;
+    }
+
+    .button1:hover::after {
+      opacity: 1;
+      background-color: #a7a7a7;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .button1,
+    .button1:after {
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out;
+    }
+
+    .button1:hover {
+      border: 4px solid #afafaf;
+    }
+
+    p {
+      text-align: center;
+    }
+
+
+    #timer {
+      font-size: 3em;
+      font-weight: 100;
+      color: #86878a;
+      text-shadow: 0 0 20px #E15118;
+    }
+
+    #timer div {
+      display: inline-block;
+      min-width: 90px;
+    }
+
+    #timer div span {
+      color: #86878a;
+      display: block;
+      font-size: .35em;
+      font-weight: 400;
+    }
+
+    #connection {
+      color: #86878a;
+    }
+  </style>
+</head>
+
+<body style="background: linear-gradient(70deg, rgb(255, 255, 255), rgb(219, 219, 219));">
+  <p id="connection" style="color: rgb(134, 135, 138);">Connected!</p>
+
+  <div class="button center">
+
+    <input id="checkbox" type="checkbox">
+    <div class="button-center center">
+      <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+      <p id="txt">ON</p>
+    </div>
+  </div>
+  <div class="block">
+
+    <input id="apiVal" type="text" placeholder="API KEY" class="input-res">
+    <input id="timerVal" type="text" class="input-res">
+
+    <div class="container">
+      <button id="timerBtn" class="button1">
+        Set Timer
+      </button>
+    </div>
+    <div id="timer"><div>0<span>hours</span></div><div>0<span>minutes</span></div><div>0<span>seconds</span></div></div>
+  </div>
+
+
+
+<link rel="stylesheet" href="./ESPike WebApp_files/alertify.min.css">
+<link rel="stylesheet" href="./ESPike WebApp_files/default.min.css">
+<script src="./ESPike WebApp_files/alertify.min.js.download"></script>
+
+<script>
+  function postRequest(command) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", 'http://192.168.4.1/esp', true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        alertify.success(xhr.response);
+      }
+    }
+    var api_key = document.getElementById("apiVal").value;
+    xhr.send("api_key=" + api_key + "&" + command);
+    // console.log("api_key=" + api_key + "&" + command)
+  }
+
+  element = document.getElementById("checkbox")
+  txt = document.getElementById("txt")
+  element.addEventListener("click", turnOn);
+  timerBtn = document.getElementById("timerBtn")
+  timerVal = document.getElementById("timerVal")
+  timerVal.value = 30
+  timerBtn.addEventListener("click", setTimer)
+
+  function setTimer() {
+    let timer = timerVal.value
+    postRequest("command=time&time=" + timer)
+  }
+  function turnOn() {
+    //   document.getElementById("txt").innerHTML = "chekced";
+    let relayState = element.checked;
+    postRequest("command=relay&relay=" + relayState)
+  }
+</script>
+
+
+
+
+<script>
+  function updateConnected(connected) {
+    connection = document.getElementById("connection")
+    if (connected == 1) {
+      connection.innerText = "Connected!";
+      connection.style.color = "#86878a";
+    }
+    else {
+      connection.innerText = "Device Disconnected";
+      connection.style.color = "red";
+
+    }
+
+  }
+  function updateRelay(relayState) {
+    if (relayState == 1) {
+      element.checked = true;
+      document.body.style.background = "linear-gradient(70deg, rgb(255 255 255), rgb(219 219 219))"
+      txt.innerText = "ON"
+    }
+    else {
+      element.checked = false;
+      document.body.style.background = "linear-gradient(120deg, #413f42, #2d2d2d)";
+      txt.innerText = "OFF"
+    }
+
+  }
+  function updateTimer(diff) {
+    // days = Math.floor(diff / (60 * 60 * 24));
+    hours = Math.floor(diff / (60 * 60));
+    mins = Math.floor(diff / (60));
+    secs = Math.floor(diff);
+    // d = days;
+    // h = hours - days * 24;
+    h = hours;
+    m = mins - hours * 60;
+    s = secs - mins * 60;
+    document.getElementById("timer")
+      .innerHTML =
+      // '<div>' + d + '<span>days</span></div>' +
+      '<div>' + h + '<span>hours</span></div>' +
+      '<div>' + m + '<span>minutes</span></div>' +
+      '<div>' + s + '<span>seconds</span></div>';
+  }
+
+  function updateData() {
+    var req = new XMLHttpRequest();
+    req.open("POST", 'http://192.168.4.1/esp', true);
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    req.onreadystatechange = function () {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        var values = req.response.split('&');
+        var connected = 0, relayState=0, timer=0;
+        if (values.length == 3) {
+          connected = values[0].split('=')[1];
+          relayState = values[1].split('=')[1];
+          timer = values[2].split('=')[1];
+        }
+        updateTimer(timer);
+        updateRelay(relayState)
+        updateConnected(connected);
+        console.log("connected:" + connected + "  relay:" + relayState + "  time:" + timer);
+      }
+    }
+    var api_key = document.getElementById("apiVal").value;
+    req.send("api_key=" + api_key + "&command=getAppData");
+  }
+
+  updateTimer(0);
+  setInterval('updateData()', 1000);
+
+
+</script>
+
+<div class="alertify-notifier ajs-bottom ajs-right"></div></body></html>
